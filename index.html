@@ -3,105 +3,107 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#130e23">
+  <meta name="theme-color" content="#020507">
+  <meta name="description" content="Jij doet waar je goed in bent. De rest is Bytezaak.">
   <title>Bytezaak</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="525x525" href="assets/images/icon-white%20radius.png">
+  <link rel="apple-touch-icon" href="assets/images/icon-white%20radius.png">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+    :root {
+      color-scheme: dark;
+      font-family: "Manrope", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: #020507;
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      background: radial-gradient(ellipse at 50% 48%, #2f1946, #130e23 68%);
-      color: #fff1db;
-      font-family: "Jersey 15", sans-serif;
-      font-weight: 400;
-      font-style: normal;
+      isolation: isolate;
+      background: #020507;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -12%;
+      z-index: -1;
+      pointer-events: none;
+      /* The icon's cyan upper-left corner, black centre and pink lower-right corner. */
+      background:
+        radial-gradient(ellipse at 0% 0%, #087784 0%, #00363e 20%, transparent 53%),
+        radial-gradient(ellipse at 100% 100%, #831449 0%, #39051f 23%, transparent 57%),
+        #020507;
+      animation: gradient-drift 30s ease-in-out infinite alternate;
+    }
+
+    @keyframes gradient-drift {
+      from { transform: translate(-2%, -2%) scale(1); }
+      to { transform: translate(3%, 3%) scale(1.08); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body::before { animation: none; }
     }
 
     main {
-      position: relative;
-      isolation: isolate;
       display: grid;
       min-height: 100vh;
       min-height: 100svh;
-      box-sizing: border-box;
       place-items: center;
-      padding: 3rem 1.5rem;
-      overflow: hidden;
+      padding: clamp(2rem, 7vw, 7rem) clamp(1.5rem, 7vw, 7rem);
       text-align: center;
     }
 
-    .stars {
-      position: absolute;
-      z-index: -1;
-      width: min(62rem, 120vw);
-      height: auto;
-      pointer-events: none;
-    }
-
     h1 {
+      width: min(100%, 66rem);
       margin: 0;
-      width: min(100%, 44rem);
-      font-size: clamp(1rem, 3vw, 1.625rem);
-      line-height: 1.5;
-      font-weight:normal;
-      text-wrap: balance;
+      font-weight: 500;
     }
 
     .lead {
       display: block;
-      margin-bottom: 0.35em;
+      font-size: clamp(1.8rem, 4.2vw, 3.75rem);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      text-wrap: balance;
+    }
+
+    .rest {
+      display: block;
+      margin-top: clamp(1.1rem, 2.5vw, 2rem);
+      color: #d8d7e1;
+      font-size: clamp(1.2rem, 2.3vw, 1.75rem);
+      line-height: 1.4;
+      font-weight: 400;
+      letter-spacing: -0.025em;
     }
 
     .wordmark {
       display: block;
-      width: 100%;
+      width: min(100%, 57rem);
       height: auto;
-      margin-top: 1rem;
-      overflow: visible;
+      margin: clamp(1.75rem, 4.5vw, 3.5rem) auto 0;
+    }
+
+    @media (max-width: 480px) {
+      main { padding-inline: 1.5rem; }
+      .lead { max-width: 16ch; margin-inline: auto; }
     }
   </style>
 </head>
 <body>
   <main>
-    <svg class="stars" viewBox="0 0 160 92" aria-hidden="true" shape-rendering="crispEdges">
-      <defs>
-        <path id="spark" d="M3 0h1v2h1v1h2v1H5v1H4v2H3V5H2V4H0V3h2V2h1z"/>
-      </defs>
-      <g fill="#ffcc82">
-        <use href="#spark" x="27" y="17"/>
-        <use href="#spark" x="126" y="65"/>
-        <path d="M62 15h2v2h-2z M105 76h2v2h-2z"/>
-      </g>
-      <g fill="#b99cff">
-        <use href="#spark" x="120" y="18"/>
-        <use href="#spark" x="35" y="70"/>
-        <path d="M17 61h2v2h-2z M141 33h2v2h-2z M91 9h1v1h-1z M70 84h1v1h-1z"/>
-      </g>
-      <g fill="#ff8ab1">
-        <path d="M49 24h2v2h-2z M109 21h1v1h-1z M52 76h1v1h-1z M143 56h1v1h-1z"/>
-      </g>
-    </svg>
-
     <h1>
       <span class="lead">Jij doet waar je goed in bent.</span>
-      De rest is
-      <svg class="wordmark" viewBox="-1 -1 53 13" role="img" aria-label="Bytezaak." shape-rendering="crispEdges">
-        <defs>
-          <g id="bytezaak">
-            <path d="M0 0h4v1h-4z M0 1h1v1h-1z M4 1h1v1h-1z M0 2h1v1h-1z M4 2h1v1h-1z M0 3h4v1h-4z M0 4h1v1h-1z M4 4h1v1h-1z M0 5h1v1h-1z M4 5h1v1h-1z M0 6h4v1h-4z"/>
-            <path d="M6 0h1v1h-1z M10 0h1v1h-1z M6 1h1v1h-1z M10 1h1v1h-1z M7 2h1v1h-1z M9 2h1v1h-1z M8 3h1v1h-1z M8 4h1v1h-1z M8 5h1v1h-1z M8 6h1v1h-1z"/>
-            <path d="M12 0h5v1h-5z M14 1h1v1h-1z M14 2h1v1h-1z M14 3h1v1h-1z M14 4h1v1h-1z M14 5h1v1h-1z M14 6h1v1h-1z"/>
-            <path d="M18 0h5v1h-5z M18 1h1v1h-1z M18 2h1v1h-1z M18 3h4v1h-4z M18 4h1v1h-1z M18 5h1v1h-1z M18 6h5v1h-5z"/>
-            <path d="M24 0h5v1h-5z M28 1h1v1h-1z M27 2h1v1h-1z M26 3h1v1h-1z M25 4h1v1h-1z M24 5h1v1h-1z M24 6h5v1h-5z"/>
-            <path d="M31 0h3v1h-3z M30 1h1v1h-1z M34 1h1v1h-1z M30 2h1v1h-1z M34 2h1v1h-1z M30 3h5v1h-5z M30 4h1v1h-1z M34 4h1v1h-1z M30 5h1v1h-1z M34 5h1v1h-1z M30 6h1v1h-1z M34 6h1v1h-1z"/>
-            <path d="M37 0h3v1h-3z M36 1h1v1h-1z M40 1h1v1h-1z M36 2h1v1h-1z M40 2h1v1h-1z M36 3h5v1h-5z M36 4h1v1h-1z M40 4h1v1h-1z M36 5h1v1h-1z M40 5h1v1h-1z M36 6h1v1h-1z M40 6h1v1h-1z"/>
-            <path d="M42 0h1v1h-1z M46 0h1v1h-1z M42 1h1v1h-1z M45 1h1v1h-1z M42 2h1v1h-1z M44 2h1v1h-1z M42 3h2v1h-2z M42 4h1v1h-1z M44 4h1v1h-1z M42 5h1v1h-1z M45 5h1v1h-1z M42 6h1v1h-1z M46 6h1v1h-1z"/>
-            <path d="M48 6h1v1h-1z"/>
-          </g>
-        </defs>
-        <use href="#bytezaak" x="0" y="0.5" fill="#a26a86"/>
-        <use href="#bytezaak" fill="#fff1c8"/>
-      </svg>
+      <span class="rest">De rest is</span>
+      <img class="wordmark" src="assets/images/logo-white.png" width="2600" height="525" alt="Bytezaak." fetchpriority="high" decoding="async">
     </h1>
   </main>
 </body>
